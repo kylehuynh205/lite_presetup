@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {  }
+id: triplestore
+label: Triplestore
+backend: database
+backend_configuration:
+  lease_time: 300
+processor: daemon
+processing_time: 90
+locked: false
+
