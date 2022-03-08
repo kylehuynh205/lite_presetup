@@ -30,6 +30,9 @@ drush -y config-set --input-format=yaml openseadragon.settings iiif_server "${ca
 drush -y config-set --input-format=yaml openseadragon.settings manifest_view iiif_manifest
 drush -y config-set --input-format=yaml islandora_iiif.settings iiif_server "${cantaloupe_url}"
 
+# configure access control fields
+drush -y config-import --partial --source=$PWD/config/access_control
+
 # configure Advanced Queue
 drush -y config-import --partial --source=$PWD/config/advanced_queue
 
