@@ -8,3 +8,11 @@ mkdir "${private_files_path}"
 
 # configure access control fields
 drush -y config-import --partial --source=$PWD/config/private_file_system
+
+cd /var/www/html/drupal/web/modules/contrib/file_entity
+
+wget https://raw.githubusercontent.com/digitalutsc/override_permission_file_entity/main/override_file_access.patch
+
+patch -p1 < override_file_access.patch
+
+cd /var/www/html/drupal/
