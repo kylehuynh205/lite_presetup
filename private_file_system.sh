@@ -6,6 +6,9 @@ private_files_path=/var/www/html/drupal/web/sites/default/private_files
 
 mkdir "${private_files_path}"
 
+# update settings.php with path of private file system
+sudo sed -i "/file_private_path/c\$settings['file_private_path'] = 'sites/default/private_files';" settings.php
+
 # configure access control fields
 drush -y config-import --partial --source=$PWD/config/private_file_system
 
