@@ -13,6 +13,10 @@ cantaloupe_url=https://islandora.traefik.me/cantaloupe
 blazegraph_url=https://islandora.traefik.me:8082/bigdata
 blazegraph_namespace=islandora
 
+
+#Enable microservice modules
+drush -y pm:enable advancedqueue_runner triplestore_indexer fits
+
 # configure Advanced Queue
 drush -y config-import --partial --source=$PWD/config/advanced_queue
 
