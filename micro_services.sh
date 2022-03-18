@@ -13,11 +13,6 @@ cantaloupe_url=https://islandora.traefik.me/cantaloupe
 blazegraph_url=https://islandora.traefik.me:8082/bigdata
 blazegraph_namespace=islandora
 
-#fits
-fits_url=/opt/fits-1.4.1/fits.sh
-fits_remote_url=http://localhost:8080/fits/examine
-
-
 # configure Advanced Queue
 drush -y config-import --partial --source=$PWD/config/advanced_queue
 
@@ -45,6 +40,15 @@ drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerco
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig select-auth-method
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig advancedqueue-id triplestore
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig content-type-to-index "islandora_object: islandora_object"
+
+# Setup Fits
+mkdir -p /opt/fits
+wget https://github.com/harvard-lts/fits/releases/download/1.4.0/fits-latest.zip -P /opt/fits
+unzip /opt/fits/fits-latest.zip
+
+#fits
+fits_url=/opt/fits/fits.sh
+fits_remote_url=http://islandora.traefik.me:8080/fits/examine
 
 # configure fits
 drush -y config-set --input-format=yaml fits.fitsconfig fits-method remote
