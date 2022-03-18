@@ -11,7 +11,7 @@ mkdir "${private_files_path}"
 chown -Rf www-data:www-data "${private_files_path}"
 
 # update settings.php with path of private file system
-sed -i "/file_private_path/c\$settings['file_private_path'] = 'sites/default/private_files';" "${site_path}"/web/sites/default/settings.php
+cd "${site_path}"/web/sites/default && chmod 777 settings.php && sed -i "/file_private_path/c\$settings['file_private_path'] = 'sites/default/private_files';" "${site_path}"/web/sites/default/settings.php && chmod 444 settings.php
 
 # configure access control fields
 drush -y config-import --partial --source=$PWD/config/private_file_system
@@ -19,9 +19,8 @@ drush -y config-import --partial --source=$PWD/config/private_file_system
 
 # Apply patch for file_entity
 wget https://raw.githubusercontent.com/digitalutsc/override_permission_file_entity/main/override_file_access.patch -P "${site_path}"/web/modules/contrib/file_entity
-cd "${site_path}"/web/modules/contrib/file_entity
-patch -p1 < override_file_access.patch
-cd "${site_path}"
+cd "${site_path}"/web/modules/contrib/file_entity && patch -p1 < override_file_access.patch
+
 
 # import access control fields
 drush -y config-import --partial --source=$PWD/config/access_control
