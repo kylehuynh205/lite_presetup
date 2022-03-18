@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#inital_path
+inital_path=$PWD
+
 #current site
 site_path=$PWD/..
 
@@ -21,7 +24,7 @@ drush -y config-import --partial --source=$PWD/config/private_file_system
 
 # Apply patch for file_entity
 wget https://raw.githubusercontent.com/digitalutsc/override_permission_file_entity/main/override_file_access.patch -P "${site_path}"/web/modules/contrib/file_entity
-cd "${site_path}"/web/modules/contrib/file_entity && patch -p1 < override_file_access.patch && cd "${site_path}"
+cd "${site_path}"/web/modules/contrib/file_entity && patch -p1 < override_file_access.patch && cd "${inital_path}"
 
 
 # import access control fields
