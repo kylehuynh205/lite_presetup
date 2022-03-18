@@ -19,8 +19,11 @@ mkdir "${private_files_path}"
 chmod 777 "${site_path}"/web/sites/default/settings.php 
 cd "${site_path}"/web/sites/default && sed -i "/file_private_path/c\$settings['file_private_path'] = 'sites/default/private_files';" settings.php && chmod 444 "${site_path}"/web/sites/default/settings.php && cd "${inital_path}"
 
-# configure access control fields
-drush -y config-import --partial --source=$PWD/config/private_file_system
+# configure file system
+drush -y config-import --partial --source=$PWD/config/private_file_system/system
+
+# configure media's file fields
+drush -y config-import --partial --source=$PWD/config/private_file_system/media
 
 
 # Apply patch for file_entity
