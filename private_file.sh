@@ -6,6 +6,9 @@ inital_path=$PWD
 #current site
 site_path="${inital_path}"/..
 
+public_files_path="${site_path}"/web/sites/default/files
+private_files_path="${site_path}"/web/sites/default/private_files
+
 mkdir "${private_files_path}"
 #chown -Rf www-data:www-data "${private_files_path}"
 
