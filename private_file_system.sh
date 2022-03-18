@@ -20,3 +20,6 @@ wget https://raw.githubusercontent.com/digitalutsc/override_permission_file_enti
 patch -p1 < override_file_access.patch
 
 cd "${site_path}"
+
+# import access control fields
+drush -y config-import --partial --source=$PWD/config/access_control
