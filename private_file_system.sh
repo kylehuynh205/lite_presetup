@@ -4,6 +4,9 @@ site_path=/var/www/drupal
 public_files_path="${site_path}"/web/sites/default/files
 private_files_path="${site_path}"/web/sites/default/private_files
 
+#Enable microservice modules
+drush -y pm:enable group groupmedia group_permissions gnode islandora_group_defaults islandora_group group_solr
+
 mkdir "${private_files_path}"
 chown -Rf www-data:www-data "${private_files_path}"
 
