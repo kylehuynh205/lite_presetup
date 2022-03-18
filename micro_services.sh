@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #current site
 site_path=/var/www/drupal
 
