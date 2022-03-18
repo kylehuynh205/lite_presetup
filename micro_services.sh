@@ -51,8 +51,8 @@ fits_url=/opt/fits/fits.sh
 fits_remote_url=http://islandora.traefik.me:8080/fits/examine
 
 # configure fits
-drush -y config-set --input-format=yaml fits.fitsconfig fits-method remote
-drush -y config-set --input-format=yaml fits.fitsconfig fits-server-url "${fits_remote_url}"
+drush -y config-set --input-format=yaml fits.fitsconfig fits-method local
+drush -y config-set --input-format=yaml fits.fitsconfig fits-path "${fits_url}"
 drush -y config-set --input-format=yaml fits.fitsconfig fits-advancedqueue_id fits
 drush -y config-set --input-format=yaml fits.fitsconfig fits-extract-ingesting 1
 drush -y config-set --input-format=yaml fits.fitsconfig aqj-max-retries  5
