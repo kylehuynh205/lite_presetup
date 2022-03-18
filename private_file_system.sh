@@ -1,8 +1,8 @@
 #current site
-site_path=/var/www/html/drupal
+site_path=/var/www/drupal
 
-public_files_path=/var/www/html/drupal/web/sites/default/files
-private_files_path=/var/www/html/drupal/web/sites/default/private_files
+public_files_path="${site_path}"/web/sites/default/files
+private_files_path="${site_path}"/web/sites/default/private_files
 
 mkdir "${private_files_path}"
 chown -Rf www-data:www-data "${private_files_path}"
@@ -19,4 +19,4 @@ wget https://raw.githubusercontent.com/digitalutsc/override_permission_file_enti
 
 patch -p1 < override_file_access.patch
 
-cd /var/www/html/drupal/
+cd "${site_path}"
