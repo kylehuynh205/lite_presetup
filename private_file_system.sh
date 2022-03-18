@@ -1,5 +1,5 @@
 #current site
-site_path=$PWD
+site_path=$PWD/../
 
 public_files_path="${site_path}"/web/sites/default/files
 private_files_path="${site_path}"/web/sites/default/private_files
