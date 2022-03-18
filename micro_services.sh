@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #current site
-site_path=/var/www/drupal
+site_path=$PWD/..
 
 #configure_search_api_solr_module
 SOLR_CORE=ISLANDORA
