@@ -15,6 +15,9 @@ drush -y pm:enable group groupmedia group_permissions gnode islandora_group_defa
 # enable islandora access control with group
 drush -y pm:enable islandora_group group_solr
 
+# import group_permissions
+drush -y config-import --partial --source=$"${inital_path}"/config/group_permission
+
 mkdir "${private_files_path}"
 #chown -Rf www-data:www-data "${private_files_path}"
 
