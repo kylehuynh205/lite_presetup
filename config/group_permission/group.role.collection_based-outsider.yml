@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collection_based
+id: collection_based-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: collection_based
+permissions_ui: true
+permissions: {  }

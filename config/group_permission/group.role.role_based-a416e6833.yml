@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.role_based
+  enforced:
+    config:
+      - user.role.administrator
+id: role_based-a416e6833
+label: Administrator
+weight: 3
+internal: true
+audience: outsider
+group_type: role_based
+permissions_ui: false
+permissions: {  }

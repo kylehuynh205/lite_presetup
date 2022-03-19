@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.role_based
+id: role_based-anonymous
+label: Anonymous
+weight: -102
+internal: true
+audience: anonymous
+group_type: role_based
+permissions_ui: true
+permissions: {  }

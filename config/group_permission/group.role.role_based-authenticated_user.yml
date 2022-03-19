@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.role_based
+id: role_based-authenticated_user
+label: 'Authenticated User'
+weight: 105
+internal: false
+audience: member
+group_type: role_based
+permissions_ui: true
+permissions:
+  - 'view group_media:audio entity'
+  - 'view group_media:document entity'
+  - 'view group_media:extracted_text entity'
+  - 'view group_media:file entity'
+  - 'view group_media:fits_technical_metadata entity'
+  - 'view group_media:image entity'
+  - 'view group_media:private_file entity'
+  - 'view group_media:remote_video entity'
+  - 'view group_media:video entity'
+  - 'view group_node:article entity'
+  - 'view group_node:islandora_object entity'
+  - 'view group_node:page entity'
