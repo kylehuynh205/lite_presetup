@@ -9,8 +9,11 @@ site_path="${inital_path}"/..
 public_files_path="${site_path}"/web/sites/default/files
 private_files_path="${site_path}"/web/sites/default/private_files
 
-#Enable microservice modules
-drush -y pm:enable group groupmedia group_permissions gnode islandora_group_defaults islandora_group group_solr
+#Enable access control modules
+drush -y pm:enable group groupmedia group_permissions gnode islandora_group_defaults 
+
+# enable islandora access control with group
+drush -y pm:enable islandora_group group_solr
 
 mkdir "${private_files_path}"
 #chown -Rf www-data:www-data "${private_files_path}"
