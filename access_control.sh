@@ -13,7 +13,7 @@ private_files_path="${site_path}"/web/sites/default/private_files
 drush -y pm:enable group groupmedia group_permissions gnode islandora_group_defaults 
 
 # enable islandora access control with group
-drush -y pm:enable islandora_group group_solr field_access_terms_defaultvalue
+drush -y pm:enable islandora_group group_solr
 
 # import group_permissions
 drush -y config-import --partial --source=$"${inital_path}"/config/group_permission
@@ -39,3 +39,5 @@ cd "${site_path}"/web/modules/contrib/file_entity && patch -p1 < override_file_a
 
 # import access control fields
 drush -y config-import --partial --source=$PWD/config/access_control
+
+drush -y pm:enable field_access_terms_defaultvalue
