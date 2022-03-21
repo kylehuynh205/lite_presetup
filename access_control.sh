@@ -40,7 +40,7 @@ cd "${site_path}"/web/modules/contrib/file_entity && patch -p1 < override_file_a
 # import access control fields
 drush -y config-import --partial --source=$PWD/config/access_control
 
-
+# import config for access controle field with taxonomy terms
 drush -y config-set --input-format=yaml islandora_group.config collection_based "islandora_access"
 drush -y config-set --input-format=yaml islandora_group.config role_based "islandora_access"
 drush -y config-set --input-format=yaml islandora_group.config node-type-access-fields '{"article":"field_access_terms","islandora_object":"field_access_terms","page":"field_access_terms"}'
@@ -48,3 +48,6 @@ drush -y config-set --input-format=yaml islandora_group.config media-type-access
 
 # enable default values for access control terms 
 drush -y pm:enable field_access_terms_defaultvalue
+
+# disable setup modules
+drush -y pmu islandora_group_defaults field_access_terms_defaultvalue
