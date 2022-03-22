@@ -6,6 +6,12 @@ inital_path=$PWD
 #current site
 site_path=$PWD/..
 
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+    exit 0
+fi
+
 if [ $1 == "playbook" ]; then
     #configure_search_api_solr_module
     SOLR_CORE=ISLANDORA
