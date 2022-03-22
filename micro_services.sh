@@ -17,14 +17,14 @@ if [ $1 == "playbook" ]; then
     SOLR_CORE=ISLANDORA
     solr_host=localhost:8983
     solr_core=multisite
-    cantaloupe_url= http://localhost:8080/cantaloupe/iiif/2
+    cantaloupe_url=http://localhost:8080/cantaloupe/iiif/2
     
     #blazegraph
     blazegraph_url=http://localhost:8080/bigdata
     blazegraph_namespace=islandora
     
     #fits
-    fits_mode = "remote"
+    fits_mode="remote"
     fits_url=http://localhost:8080/fits/examine
 elif [ $1 == "docker" ]; then
     #configure_search_api_solr_module
@@ -40,7 +40,7 @@ elif [ $1 == "docker" ]; then
     blazegraph_namespace=islandora
 
     #fits
-    fits_mode = "local"
+    fits_mode="local"
     fits_url=/opt/fits-1.4.1/fits.sh
     
     # Setup Fits
