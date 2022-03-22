@@ -26,6 +26,8 @@ if [ $1 == "playbook" ]; then
     #fits
     fits_mode="remote"
     fits_url=http://localhost:8080/fits/examine
+    fits_config_var="fits-server-url"
+        
 elif [ $1 == "docker" ]; then
     #configure_search_api_solr_module
     SOLR_CORE=ISLANDORA
@@ -42,6 +44,7 @@ elif [ $1 == "docker" ]; then
     #fits
     fits_mode="local"
     fits_url=/opt/fits-1.4.1/fits.sh
+    fits_config_var="fits-path"
     
     # Setup Fits
     mkdir -p /opt/fits
@@ -86,7 +89,7 @@ drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerco
 
 # configure fits
 drush -y config-set --input-format=yaml fits.fitsconfig fits-method "${fits_mode}"
-drush -y config-set --input-format=yaml fits.fitsconfig fits-path "${fits_url}"
+drush -y config-set --input-format=yaml fits.fitsconfig "${fits_config_var}" "${fits_url}"
 drush -y config-set --input-format=yaml fits.fitsconfig fits-advancedqueue_id fits
 drush -y config-set --input-format=yaml fits.fitsconfig fits-extract-ingesting 1
 drush -y config-set --input-format=yaml fits.fitsconfig aqj-max-retries  5
