@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#inital_path
+inital_path=$PWD
+
+#current site
+site_path="${inital_path}"/..
+
 # configure document mimetypes
 drush -y --input-format=yaml config:set file_entity.type.document mimetypes "
 - text/plain
@@ -33,6 +39,11 @@ drush -y config:set search_api.server.default_solr_server backend_config.connect
 # set front page
 drush -y config:set system.site page.front "/collections"
 
+# apply patch for fico module
+wget https://www.drupal.org/files/issues/2022-02-10/deprecated-3084136-3.patch -P "${site_path}"/web/modules/contrib/fico
+cd "${site_path}"/web/modules/contrib/fico && patch -p1 < deprecated-3084136-3.patch && cd "${inital_path}"
+
+# import configs for new modelling
 drush -y --input-format=yaml config:set core.entity_form_display.media.audio.media_library content "
 ableplayer_caption:
   type: file_generic
