@@ -23,8 +23,9 @@ drush -y pm:enable islandora_group group_solr
 # import group_permissions
 drush -y config-import --partial --source=$"${inital_path}"/config/group_permission
 
+# create directory for private_files
 mkdir "${private_files_path}"
-#chown -Rf www-data:www-data "${private_files_path}"
+chown -Rf www-data:www-data "${private_files_path}"
 
 # update settings.php with path of private file system
 chmod 777 "${site_path}"/web/sites/default/settings.php 
