@@ -10,7 +10,7 @@ public_files_path="${site_path}"/web/sites/default/files
 private_files_path="${site_path}"/web/sites/default/private_files
 
 #Enable access control modules
-drush -y pm:enable group groupmedia group_permissions gnode islandora_group_defaults 
+drush -y pm:enable group groupmedia group_permissions gnode islandora_group_defaults media_library_edit
 
 # enable islandora access control with group
 drush -y pm:enable islandora_group group_solr
