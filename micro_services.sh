@@ -19,7 +19,7 @@ then
     blazegraph_namespace=islandora
     
     #fits
-    fits_mode = remote
+    fits_mode = "remote"
     fits_url=http://localhost:8080/fits/examine
 elif [ $1 = "docker" ]; 
 then
@@ -36,7 +36,7 @@ then
     blazegraph_namespace=islandora
 
     #fits
-    fits_mode = local
+    fits_mode = "local"
     fits_url=/opt/fits-1.4.1/fits.sh
     
     # Setup Fits
