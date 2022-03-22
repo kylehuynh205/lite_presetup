@@ -1,9 +1,10 @@
 #!/bin/bash
 
  #inital_path
-    inital_path=$PWD
-    #current site
-    site_path=$PWD/..
+inital_path=$PWD
+
+#current site
+site_path=$PWD/..
 
 if [ $1 = "playbook" ]; 
 then
