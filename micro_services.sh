@@ -1,19 +1,51 @@
 #!/bin/bash
 
-#current site
-site_path=$PWD/..
+ #inital_path
+    inital_path=$PWD
+    #current site
+    site_path=$PWD/..
 
-#configure_search_api_solr_module
-SOLR_CORE=ISLANDORA
-solr_host=islandora.traefik.me:8983
-solr_core=multisite
+if [ $1 = "playbook" ]; 
+then
+    #configure_search_api_solr_module
+    SOLR_CORE=ISLANDORA
+    solr_host=localhost:8983
+    solr_core=multisite
+    cantaloupe_url= http://localhost:8080/cantaloupe/iiif/2
+    
+    #blazegraph
+    blazegraph_url=http://localhost:8080/bigdata
+    blazegraph_namespace=islandora
+    
+    #fits
+    fits_mode = remote
+    fits_url=http://localhost:8080/fits/examine
+elif [ $1 = "docker" ]; 
+then
+    #configure_search_api_solr_module
+    SOLR_CORE=ISLANDORA
+    solr_host=islandora.traefik.me:8983
+    solr_core=multisite
 
-#iiif server
-cantaloupe_url=https://islandora.traefik.me/cantaloupe
+    #iiif server
+    cantaloupe_url=https://islandora.traefik.me/cantaloupe
 
-#blazegraph
-blazegraph_url=https://islandora.traefik.me:8082/bigdata
-blazegraph_namespace=islandora
+    #blazegraph
+    blazegraph_url=https://islandora.traefik.me:8082/bigdata
+    blazegraph_namespace=islandora
+
+    #fits
+    fits_mode = local
+    fits_url=/opt/fits-1.4.1/fits.sh
+    
+    # Setup Fits
+    mkdir -p /opt/fits
+    wget https://github.com/harvard-lts/fits/releases/download/1.4.0/fits-latest.zip -P /opt/fits
+    unzip /opt/fits/fits-latest.zip
+else
+  echo "Please enter which environment you running this script on"
+  exit 0
+fi
 
 
 #Enable microservice modules
@@ -47,17 +79,8 @@ drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerco
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig advancedqueue-id triplestore
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig content-type-to-index "islandora_object: islandora_object"
 
-# Setup Fits
-mkdir -p /opt/fits
-wget https://github.com/harvard-lts/fits/releases/download/1.4.0/fits-latest.zip -P /opt/fits
-unzip /opt/fits/fits-latest.zip
-
-#fits
-fits_url=/opt/fits/fits.sh
-fits_remote_url=http://islandora.traefik.me:8080/fits/examine
-
 # configure fits
-drush -y config-set --input-format=yaml fits.fitsconfig fits-method local
+drush -y config-set --input-format=yaml fits.fitsconfig fits-method "${fits_mode}"
 drush -y config-set --input-format=yaml fits.fitsconfig fits-path "${fits_url}"
 drush -y config-set --input-format=yaml fits.fitsconfig fits-advancedqueue_id fits
 drush -y config-set --input-format=yaml fits.fitsconfig fits-extract-ingesting 1
