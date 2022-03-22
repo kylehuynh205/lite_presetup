@@ -6,8 +6,7 @@ inital_path=$PWD
 #current site
 site_path=$PWD/..
 
-if [ $1 == "playbook" ]
-then
+if [ $1 == "playbook" ]; then
     #configure_search_api_solr_module
     SOLR_CORE=ISLANDORA
     solr_host=localhost:8983
@@ -21,8 +20,7 @@ then
     #fits
     fits_mode = "remote"
     fits_url=http://localhost:8080/fits/examine
-elif [ $1 == "docker" ]
-then
+elif [ $1 == "docker" ]; then
     #configure_search_api_solr_module
     SOLR_CORE=ISLANDORA
     solr_host=islandora.traefik.me:8983
