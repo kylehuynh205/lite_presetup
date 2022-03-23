@@ -145,3 +145,4 @@ name:
     placeholder: ''
   third_party_settings: {}"
   
+drush -y migrate:import --group=islandora
