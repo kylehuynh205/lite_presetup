@@ -66,13 +66,16 @@ drush -y config-import --partial --source=$PWD/config/advanced_queue
 drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig drush_path "${site_path}"/vendor/drush/drush/drush
 drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig root_path "${site_path}"
 drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig auto-restart-in-cron 1
+drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig runner-pid 34613
 drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig queues "
-- default: default
-- triplestore: triplestore
-- fits:fits
+- default
+- triplestore
+- fits
 "
 drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig interval '5'
 drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig mode limit
+drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig started_at $(date +%s)
+drush cron
 
 # Configure Rest Services (enable jsonld endpoint)
 drush -y config-import --partial --source=$PWD/config/rest
