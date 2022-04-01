@@ -44,7 +44,7 @@ cd "${site_path}"/web/modules/contrib/file_entity && patch -p1 < override_file_a
 
 
 # import access control fields
-drush -y config-import --partial --source=$PWD/configs/access_control
+drush -y config-import --partial --source=$PWD/../configs/access_control
 
 # import config for access controle field with taxonomy terms
 drush -y config-set --input-format=yaml islandora_group.config collection_based "islandora_access"

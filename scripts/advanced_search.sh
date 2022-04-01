@@ -7,4 +7,4 @@ inital_path=$PWD
 site_path="${inital_path}"/../..
 
 # import advanced search configs
-drush -y config-import --partial --source=$"${inital_path}"/configs/advanced_search
+drush -y config-import --partial --source=$"${inital_path}"/../configs/advanced_search
