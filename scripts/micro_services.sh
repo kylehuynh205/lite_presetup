@@ -4,7 +4,7 @@
 inital_path=$PWD
 
 #current site
-site_path=$PWD/..
+site_path=$PWD/../..
 
 if [ $# -eq 0 ]
   then
@@ -60,7 +60,7 @@ fi
 drush -y pm:enable advancedqueue_runner triplestore_indexer fits
 
 # configure Advanced Queue
-drush -y config-import --partial --source=$PWD/config/advanced_queue
+drush -y config-import --partial --source=$PWD/../configs/advanced_queue
 
 # configure advanced queue runner
 drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig drush_path "${site_path}"/vendor/drush/drush/drush
@@ -78,7 +78,7 @@ drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig starte
 drush cron
 
 # Configure Rest Services (enable jsonld endpoint)
-drush -y config-import --partial --source=$PWD/config/rest
+drush -y config-import --partial --source=$PWD/../configs/rest
 
 #configure triplestore_indexer
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig server-url "${blazegraph_url}"

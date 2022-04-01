@@ -4,17 +4,17 @@
 inital_path=$PWD
 
 #current site
-site_path="${inital_path}"/..
+site_path="${inital_path}"/../..
 
-DRUPAL_THEME = olivero
-drush -y config-import --partial --source "${inital_path}"/config/blocks_$(DRUPAL_THEME)
+DRUPAL_THEME=olivero
+drush -y config-import --partial --source "${inital_path}"/../configs/blocks_"${DRUPAL_THEME}"
 
-DOMAIN=localhost
+DOMAIN=localhost:8000
 DRUPAL_DEFAULT_ACCOUNT_PASSWORD=islandora
-URL="https://${DOMAIN}/term_from_uri?_format=json&uri=https%3A%2F%2Fschema.org%2FBook"
+URL="http://$DOMAIN/term_from_uri?_format=json&uri=https%3A%2F%2Fschema.org%2FBook"
 BOOK_TERM_ID=$(curl -u admin:"$DRUPAL_DEFAULT_ACCOUNT_PASSWORD" -X GET "$URL" | jq .[].tid[].value)
 echo "book term id: $BOOK_TERM_ID"
-MANIFEST_URL="https://${DOMAIN}/node/[node:nid]/book-manifest"
+MANIFEST_URL="https://$DOMAIN/node/[node:nid]/book-manifest"
 
 # Set book-manifest url
 drush -y --input-format=yaml config:set block.block.miradorblock visibility.term "

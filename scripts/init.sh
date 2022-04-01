@@ -4,7 +4,7 @@
 inital_path=$PWD
 
 #current site
-site_path="${inital_path}"/..
+site_path="${inital_path}"/../..
 
 # configure document mimetypes
 drush -y --input-format=yaml config:set file_entity.type.document mimetypes "
