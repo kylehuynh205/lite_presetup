@@ -57,3 +57,13 @@ drush -y pm:enable field_access_terms_defaultvalue
 
 # disable setup modules
 drush -y pmu islandora_group_defaults field_access_terms_defaultvalue
+
+# re-configure OpenSeadragon
+wget https://raw.githubusercontent.com/digitalutsc/private_files_adapter/main/scripts/openseadragon.authentication.patch -P "${site_path}"/web/modules/contrib/openseadragon  
+cd "${site_path}"/web/modules/contrib/openseadragon && patch -p1 < openseadragon.authentication.patch && cd "${inital_path}"
+
+# re-configure Cantaloupe (Only with Playbook)
+git clone https://github.com/digitalutsc/private_files_adapter.git "${site_path}"/web/modules/contrib/private_files_adapter
+mv /opt/cantaloupe/cantaloupe.properties /opt/cantaloupe/cantaloupe.bk
+cp "${site_path}"/web/modules/contrib/scripts/cantaloupe.properties /opt/cantaloupe
+drush en -y private_files_adapter
