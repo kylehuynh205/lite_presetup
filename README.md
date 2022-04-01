@@ -32,6 +32,7 @@ cd lite_presetup
 chmod +x *.sh
 ./init.sh
 ./micro_services.sh playbook
-sudo access_control.sh
+sudo bash access_control.sh
+./block_update.sh
 ./workbench.sh
 ````
