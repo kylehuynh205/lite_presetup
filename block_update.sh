@@ -9,8 +9,8 @@ site_path="${inital_path}"/..
 DRUPAL_THEME = olivero
 drush -y config-import --partial --source "${inital_path}"/config/blocks_$(DRUPAL_THEME)
 
-DOMAIN=$1
-DRUPAL_DEFAULT_ACCOUNT_PASSWORD=$2
+DOMAIN=localhost
+DRUPAL_DEFAULT_ACCOUNT_PASSWORD=islandora
 URL="https://${DOMAIN}/term_from_uri?_format=json&uri=https%3A%2F%2Fschema.org%2FBook"
 BOOK_TERM_ID=$(curl -u admin:"$DRUPAL_DEFAULT_ACCOUNT_PASSWORD" -X GET "$URL" | jq .[].tid[].value)
 echo "book term id: $BOOK_TERM_ID"
