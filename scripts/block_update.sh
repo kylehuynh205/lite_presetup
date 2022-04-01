@@ -26,4 +26,4 @@ negate: false
 context_mapping: {  }"
 
 # Set book-manifest url
-drush -y config:set block.block.miradorblock settings.iiif_manifest_url $MANIFEST_URL
+drush -y config:set block.block.miradorblock settings.iiif_manifest_url "${MANIFEST_URL}"
