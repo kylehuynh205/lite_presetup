@@ -21,7 +21,7 @@ drush -y pm:enable group groupmedia group_permissions gnode islandora_group_defa
 drush -y pm:enable islandora_group group_solr
 
 # import group_permissions
-drush -y config-import --partial --source=$"${inital_path}"/configs/group_permission
+drush -y config-import --partial --source=$"${inital_path}"/../configs/group_permission
 
 # create directory for private_files
 mkdir "${private_files_path}"
@@ -32,10 +32,10 @@ chmod 777 "${site_path}"/web/sites/default/settings.php
 cd "${site_path}"/web/sites/default && sed -i "/file_private_path/c\$settings['file_private_path'] = 'sites/default/private_files';" settings.php && chmod 444 settings.php && cd "${inital_path}"
 
 # configure file system
-drush -y config-import --partial --source=$"${inital_path}"/configs/private_file_system/system
+drush -y config-import --partial --source=$"${inital_path}"/../configs/private_file_system/system
 
 # configure media's file fields
-drush -y config-import --partial --source=$"${inital_path}"/configs/private_file_system/media
+drush -y config-import --partial --source=$"${inital_path}"/../configs/private_file_system/media
 
 
 # Apply patch for file_entity
