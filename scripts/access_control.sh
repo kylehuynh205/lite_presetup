@@ -65,5 +65,5 @@ cd "${site_path}"/web/modules/contrib/openseadragon && patch -p1 < openseadragon
 # re-configure Cantaloupe (Only with Playbook)
 git clone https://github.com/digitalutsc/private_files_adapter.git "${site_path}"/web/modules/contrib/private_files_adapter
 mv /opt/cantaloupe/cantaloupe.properties /opt/cantaloupe/cantaloupe.bk
-cp "${site_path}"/web/modules/contrib/scripts/cantaloupe.properties /opt/cantaloupe
+cp "${site_path}"/web/modules/contrib/private_files_adapter/scripts//cantaloupe.properties /opt/cantaloupe
 drush en -y private_files_adapter
