@@ -1,7 +1,13 @@
 #!/bin/bash
 
+#inital_path
+inital_path=$PWD
+
+#current site
+site_path="${inital_path}"/..
+
 DRUPAL_THEME = olivero
-drush -y config-import --partial --source /var/www/drupal/islandora_lite_installation/configs/blocks_$(DRUPAL_THEME)
+drush -y config-import --partial --source "${inital_path}"/config/blocks_$(DRUPAL_THEME)
 
 DOMAIN=$1
 DRUPAL_DEFAULT_ACCOUNT_PASSWORD=$2
