@@ -6,7 +6,7 @@ inital_path=$PWD
 #current site
 site_path="${inital_path}"/../..
 
-DRUPAL_THEME = olivero
+DRUPAL_THEME=olivero
 drush -y config-import --partial --source "${inital_path}"/../configs/blocks_$(DRUPAL_THEME)
 
 DOMAIN=localhost
