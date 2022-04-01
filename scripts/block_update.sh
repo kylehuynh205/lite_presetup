@@ -4,10 +4,10 @@
 inital_path=$PWD
 
 #current site
-site_path="${inital_path}"/..
+site_path="${inital_path}"/../..
 
 DRUPAL_THEME = olivero
-drush -y config-import --partial --source "${inital_path}"/config/blocks_$(DRUPAL_THEME)
+drush -y config-import --partial --source "${inital_path}"/configs/blocks_$(DRUPAL_THEME)
 
 DOMAIN=localhost
 DRUPAL_DEFAULT_ACCOUNT_PASSWORD=islandora
