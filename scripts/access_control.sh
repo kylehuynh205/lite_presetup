@@ -66,4 +66,5 @@ cd "${site_path}"/web/modules/contrib/openseadragon && patch -p1 < openseadragon
 git clone https://github.com/digitalutsc/private_files_adapter.git "${site_path}"/web/modules/contrib/private_files_adapter
 mv /opt/cantaloupe/cantaloupe.properties /opt/cantaloupe/cantaloupe.bk
 cp "${site_path}"/web/modules/contrib/private_files_adapter/scripts//cantaloupe.properties /opt/cantaloupe
+chown tomcat:tomcat /opt/cantaloupe/cantaloupe.properties
 drush en -y private_files_adapter
