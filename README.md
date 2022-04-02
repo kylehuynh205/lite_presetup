@@ -35,4 +35,5 @@ chmod +x *.sh
 sudo bash access_control.sh
 ./block_update.sh
 ./workbench.sh
+./advanced_search.sh
 ````
