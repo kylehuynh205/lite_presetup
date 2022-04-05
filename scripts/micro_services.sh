@@ -4,7 +4,7 @@
 inital_path=$PWD
 
 #current site
-site_path=$PWD/../..
+site_path=/var/www/html/drupal
 
 if [ $# -eq 0 ]
   then
