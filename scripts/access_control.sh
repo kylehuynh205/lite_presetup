@@ -75,6 +75,9 @@ cp "${site_path}"/web/modules/contrib/private_files_adapter/scripts/delegates.rb
 chown tomcat:tomcat /opt/cantaloupe/delegates.rb
 sudo service tomcat9 restart
 
+# change iiif server uri after apply reveresed proxy
+drush -y config-set --input-format=yaml openseadragon.settings iiif_server 'http://localhost:8000/cantaloupe/iiif/2'
+
 # enable the private_file_adapter module
 drush en -y private_files_adapter
 
