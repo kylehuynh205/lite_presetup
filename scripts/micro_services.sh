@@ -86,7 +86,9 @@ drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerco
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig method-of-op advanced_queue
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig aqj-max-retries 5
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig aqj-retry_delay 120
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig select-auth-method
+drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig select-auth-method digest
+drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig admin-username admin
+drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig admin-password aXNsYW5kb3Jh
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig advancedqueue-id triplestore
 drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig content-type-to-index "islandora_object: islandora_object"
 
