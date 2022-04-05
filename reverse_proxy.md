@@ -33,3 +33,10 @@ sudo nano /etc/apache2/sites-enabled/islandora.conf
   ````
   sudo service apache2 restart
   ````
+
+* Modify `IIIF Image server location` of OpenSedragon at http://localhost:8000/admin/config/media/openseadragon to 
+
+````
+http://localhost:8000/cantaloupe/iiif/2
+````
+
