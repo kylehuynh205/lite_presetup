@@ -73,6 +73,7 @@ chown tomcat:tomcat /opt/cantaloupe/cantaloupe.properties
 # Add delegate scripts for Cantaloupe
 cp "${site_path}"/web/modules/contrib/private_files_adapter/scripts/delegates.rb /opt/cantaloupe
 chown tomcat:tomcat /opt/cantaloupe/delegates.rb
+sudo service tomcat9 restart
 
 # enable the private_file_adapter module
 drush en -y private_files_adapter
