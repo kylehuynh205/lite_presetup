@@ -13,12 +13,6 @@ if [ $# -eq 0 ]
 fi
 
 if [ $1 == "playbook" ]; then
-    #configure_search_api_solr_module
-    SOLR_CORE=ISLANDORA
-    solr_host=localhost:8983
-    solr_core=multisite
-    cantaloupe_url=http://localhost:8080/cantaloupe/iiif/2
-    
     #blazegraph
     blazegraph_url=http://localhost:8080/bigdata
     blazegraph_namespace=islandora
@@ -29,14 +23,6 @@ if [ $1 == "playbook" ]; then
     fits_config_var="fits-server-url"
         
 elif [ $1 == "docker" ]; then
-    #configure_search_api_solr_module
-    SOLR_CORE=ISLANDORA
-    solr_host=islandora.traefik.me:8983
-    solr_core=multisite
-
-    #iiif server
-    cantaloupe_url=https://islandora.traefik.me/cantaloupe
-
     #blazegraph
     blazegraph_url=https://islandora.traefik.me:8082/bigdata
     blazegraph_namespace=islandora
