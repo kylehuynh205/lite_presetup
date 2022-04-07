@@ -10,16 +10,24 @@ dependencies:
 id: miradorblock
 theme: olivero
 region: content
-weight: -6
+weight: 0
 provider: null
 plugin: mirador_block
 settings:
   id: mirador_block
   label: 'Mirador block'
-  label_display: visible
+  label_display: '0'
   provider: islandora_mirador
-  iiif_manifest_url: 'https://islandora.traefik.me/node/[node:nid]/book-manifest'
+  iiif_manifest_url: 'http://localhost:8000/node/[node:nid]/book-manifest'
 visibility:
+  context:
+    id: context
+    negate: null
+    values: ''
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
   user_status:
     id: user_status
     negate: false
@@ -31,18 +39,10 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  context:
-    id: context
-    negate: null
-    values: ''
-  context_all:
-    id: context_all
-    negate: null
-    values: ''
   term:
     id: term
     tid:
       -
-        target_id: '14'
+        target_id: '15'
     negate: false
     context_mapping: {  }
