@@ -67,16 +67,16 @@ drush cron
 drush -y config-import --partial --source=$PWD/../configs/rest
 
 #configure triplestore_indexer
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig server-url "${blazegraph_url}"
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig namespace "${blazegraph_namespace}"
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig method-of-op advanced_queue
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig aqj-max-retries 5
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig aqj-retry_delay 120
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig select-auth-method digest
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig admin-username admin
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig admin-password aXNsYW5kb3Jh
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig advancedqueue-id triplestore
-drush -y config-set --input-format=yaml triplestore_indexer.triplestoreindexerconfig content-type-to-index "islandora_object: islandora_object"
+drush -y config-set --input-format=yaml triplestore_indexer.settings server_url "${blazegraph_url}"
+drush -y config-set --input-format=yaml triplestore_indexer.settings namespace "${blazegraph_namespace}"
+drush -y config-set --input-format=yaml triplestore_indexer.settings method_of_op advanced_queue
+drush -y config-set --input-format=yaml triplestore_indexer.settings aqj_max_retries 5
+drush -y config-set --input-format=yaml triplestore_indexer.settings aqj_retry_delay 120
+drush -y config-set --input-format=yaml triplestore_indexer.settings select_auth_method digest
+drush -y config-set --input-format=yaml triplestore_indexer.settings admin_username admin
+drush -y config-set --input-format=yaml triplestore_indexer.settings admin_password islandora
+drush -y config-set --input-format=yaml triplestore_indexer.settings advancedqueue_id triplestore
+drush -y config-set --input-format=yaml triplestore_indexer.settings content_type_to_index "islandora_object: islandora_object"
 
 # configure fits
 drush -y config-set --input-format=yaml fits.fitsconfig fits-method "${fits_mode}"
