@@ -49,11 +49,10 @@ drush -y pm:enable advancedqueue_runner triplestore_indexer fits
 drush -y config-import --partial --source=$PWD/../configs/advanced_queue
 
 # configure advanced queue runner
-drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig drush_path "${site_path}"/vendor/drush/drush/drush
-drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig root_path "${site_path}"
-drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig auto-restart-in-cron 1
-drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig runner-pid 34613
-drush -y config-set --input-format=yaml advancedqueue_runner.runnerconfig queues "
+drush -y config-set --input-format=yaml advancedqueue_runner.settings drush_path "${site_path}"/vendor/drush/drush/drush
+drush -y config-set --input-format=yaml advancedqueue_runner.settings root_path "${site_path}"
+drush -y config-set --input-format=yaml advancedqueue_runner.settings auto-restart-in-cron 1
+drush -y config-set --input-format=yaml advancedqueue_runner.settings queues "
 - default
 - triplestore
 - fits
